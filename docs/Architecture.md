@@ -89,7 +89,7 @@ The **ECL program** is the application/code that is executed on Thor and Roxie
 **ROXIE** is a **real-time** services container for ECL programs and data. ROXIE programs execute in sub second times. 
 
 The core design goals for both Thor and Roxie are the same. Both process the data by using a divide and conquer approach. Data is divided into parts and processed in parallel.
-[[images/data-parts.png]]
+![](images/data-parts.png)
 
 The above is an example of a file with 8 records split into 4 parts with 2 records in each part. Each part is assigned to a process. A 100,000 record file would be split into 4 parts with each part containing 25,000 records.
 
@@ -124,7 +124,8 @@ OUTPUT(joinEmployeeAndSalary);
 
 ## Thor
 
-The Thor cluster is based on a master/slave design. Each data partition is processed by a slave process, and a master process manages the slave processes.
+The Thor cluster is based on a master/slave design. Each data partition is processed by a slave process,and a master process manages the slave processes.
+
 ![](images/thor-master-slave.png)
 
 ### The Middleware
@@ -167,7 +168,7 @@ ECL programs are executed on Thor by submitting the program code to the ESP serv
 5. After compilation, the ECLCC server updates the workunit entry in Dali by adding the DLL
 6. Dali queues the workunit in the Agent queue
 7. Agent executor de-queues and creates an ECL Agent to execute the job  
-8. If the ECL Agent executes the program, the ECL Agent updates the workunit entry with the results (scenario a). If the ECL Agent determines that it has send it to a Thor cluster, it queues the workunit in the respective Thor's queue (scenario b).
+8. If the ECL Agent executes the program, the ECL Agent updates the workunit entry with the results (scenario a). If the ECL Agent determines that it has to send it to a Thor cluster, it queues the workunit in the respective Thor's queue (scenario b).
 9. The Thor Master de-queues the workunit entry and executes the ECL program
 10. The Thor Master updates the Dali workunit entry with the results of the execution
 
