@@ -89,7 +89,7 @@ The **ECL program** is the application/code that is executed on Thor and Roxie
 **ROXIE** is a **real-time** services container for ECL programs and data. ROXIE programs execute in sub second times. 
 
 The core design goals for both Thor and Roxie are the same. Both process the data by using a divide and conquer approach. Data is divided into parts and processed in parallel.
-[[images/data-parts.png]]
+![](images/data-parts.png)
 
 The above is an example of a file with 8 records split into 4 parts with 2 records in each part. Each part is assigned to a process. A 100,000 record file would be split into 4 parts with each part containing 25,000 records.
 
